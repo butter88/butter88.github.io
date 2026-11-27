@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lara Games Studio · Mobile games</title>
-<meta name="description" content="Independent mobile game studio. WormBlaster, Soccer Club Heroes and Noctidia, free on Google Play and coming soon to iOS.">
+<meta name="description" content="Independent mobile game studio. Soccer Club Heroes, WormBlaster and Noctidia, free on Google Play and coming soon to iOS.">
 <link rel="canonical" href="https://laragamesstudio.com/en/">
 <link rel="alternate" hreflang="es" href="https://laragamesstudio.com/"><link rel="alternate" hreflang="en" href="https://laragamesstudio.com/en/">
 <meta name="theme-color" content="#0b1226">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lara Games Studio">
 <meta property="og:title" content="Lara Games Studio · Mobile games">
-<meta property="og:description" content="Independent mobile game studio. WormBlaster, Soccer Club Heroes and Noctidia, free on Google Play and coming soon to iOS.">
+<meta property="og:description" content="Independent mobile game studio. Soccer Club Heroes, WormBlaster and Noctidia, free on Google Play and coming soon to iOS.">
 <meta property="og:url" content="https://laragamesstudio.com/en/">
 <meta property="og:image" content="https://laragamesstudio.com/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -68,15 +68,26 @@ h1 { font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.07; margin: 0 0 20p
 .badge { display: inline-flex; border-radius: 10px; transition: transform .15s; }
 .badge:hover { transform: translateY(-2px); }
 .badge img { height: 54px; width: auto; }
-.collage { position: relative; aspect-ratio: 1.1; }
-.collage img { position: absolute; width: 78%; height: auto; border-radius: 18px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.7); border: 1px solid rgba(255,255,255,.08); }
-.collage img:nth-child(1) { top: 0; right: 0; transform: rotate(3deg); }
-.collage img:nth-child(2) { top: 31%; left: 0; transform: rotate(-3deg); z-index: 2; }
-.collage img:nth-child(3) { bottom: 0; right: 4%; transform: rotate(2deg); z-index: 1; }
+.showcase { position: relative; display: grid; place-items: center; min-height: 600px; }
+.showcase .backdrop { position: absolute; top: 8%; left: -10%; width: 84%; height: auto; border-radius: 22px; transform: rotate(-5deg);
+                      opacity: .9; box-shadow: 0 30px 60px -20px rgba(0,0,0,.7); }
+.phone { position: relative; z-index: 2; justify-self: end; margin-right: -3%; width: 250px; aspect-ratio: 9/18.6; padding: 11px; border-radius: 46px; background: #04060d;
+         border: 2px solid #2e3a62; box-shadow: 0 50px 90px -25px rgba(0,0,0,.85), inset 0 0 0 1px rgba(255,255,255,.06); }
+.phone::before { content: ""; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 74px; height: 20px;
+                 border-radius: 999px; background: #04060d; z-index: 1; }
+.phone video { width: 100%; height: 100%; object-fit: cover; border-radius: 36px; display: block; background: #0d5a1e; }
+.feat { position: absolute; z-index: 3; left: 4%; bottom: 10%; display: flex; gap: 12px; align-items: center; text-decoration: none;
+        background: rgba(19,31,61,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #2e3a62;
+        border-radius: 18px; padding: 12px 18px 12px 12px; box-shadow: 0 20px 40px -15px rgba(0,0,0,.7); transition: transform .15s; }
+.feat:hover { transform: translateY(-3px); }
+.feat img { width: 52px; height: 52px; border-radius: 13px; }
+.feat small { display: block; font-size: .72rem; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; color: var(--teal); }
+.feat b { display: block; font-size: 1.05rem; line-height: 1.2; }
+.feat span span { display: block; font-size: .85rem; color: var(--muted); }
 .stats { display: flex; gap: 36px; margin-top: 44px; flex-wrap: wrap; }
 .stats b { display: block; font-size: 1.6rem; font-weight: 900; line-height: 1.1; }
 .stats span { color: var(--muted); font-size: .92rem; }
-@media (max-width: 900px) { .hero { padding: 48px 0 40px; } .hero .wrap { grid-template-columns: 1fr; } .collage { max-width: 520px; width: 100%; margin: 8px auto 0; } }
+@media (max-width: 900px) { .hero { padding: 48px 0 40px; } .hero .wrap { grid-template-columns: 1fr; } .showcase { min-height: 520px; margin-top: 8px; } .phone { width: 236px; justify-self: center; margin-right: 0; } .showcase .backdrop { left: 0; width: 100%; top: 4%; opacity: .6; } .feat { left: 50%; transform: translateX(-50%); bottom: 0; white-space: nowrap; } .feat:hover { transform: translateX(-50%) translateY(-3px); } }
 
 /* sections */
 section { padding: 84px 0; }
@@ -183,10 +194,14 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
       </div>
       <div class="stats"><div><b>3</b><span>games out now</span></div><div><b>3</b><span>in development</span></div><div><b>Android</b><span>iOS coming soon</span></div></div>
     </div>
-    <div class="collage" aria-hidden="true">
-      <img src="../img/banner-noctidia.webp" alt="" width="1024" height="500">
-      <img src="../img/banner-wormblaster.webp" alt="" width="1024" height="500">
-      <img src="../img/banner-soccerclubheroes.webp" alt="" width="1024" height="500">
+    <div class="showcase">
+      <img class="backdrop" src="../img/banner-soccerclubheroes.webp" alt="" width="1024" height="500">
+      <div class="phone"><video autoplay muted loop playsinline preload="auto" poster="../video/sch-loop-poster.webp" aria-label="Soccer Club Heroes match">
+        <source src="../video/sch-loop.mp4" type="video/mp4"></video></div>
+      <a class="feat" href="#soccerclubheroes">
+        <img src="../img/soccerclubheroes.webp" alt="" width="52" height="52">
+        <span><small>Featured</small><b>Soccer Club Heroes</b><span>Online soccer manager</span></span>
+      </a>
     </div>
   </div>
 </header>
@@ -196,22 +211,6 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
     <div class="wrap">
       <div class="head"><h2>Our games</h2><p>Free to play on Android.</p></div>
       
-    <article class="game" id="wormblaster">
-      <div class="media">
-        <div class="banner"><img src="../img/banner-wormblaster.webp" alt="WormBlaster" loading="lazy" width="1024" height="500"></div>
-        <div class="shots"><button type="button" data-shot="../img/shots/wormblaster-1.webp"><img src="../img/shots/wormblaster-1.webp" alt="Screenshot of WormBlaster 1" loading="lazy" width="320" height="180"></button><button type="button" data-shot="../img/shots/wormblaster-2.webp"><img src="../img/shots/wormblaster-2.webp" alt="Screenshot of WormBlaster 2" loading="lazy" width="320" height="180"></button><button type="button" data-shot="../img/shots/wormblaster-3.webp"><img src="../img/shots/wormblaster-3.webp" alt="Screenshot of WormBlaster 3" loading="lazy" width="320" height="180"></button></div>
-      </div>
-      <div class="info">
-        <div class="icon-row">
-          <img src="../img/wormblaster.webp" alt="" width="64" height="64" loading="lazy">
-          <div><h3>WormBlaster</h3><p class="tagline">Offline arcade space shooter</p></div>
-        </div>
-        <ul class="tags"><li>Shoot &#x27;em up</li><li>Arcade</li><li>Offline</li></ul>
-        <p class="desc">Blast giant space serpents and their bosses. Pick one of 14 ships, stack upgrades that last the whole run and clear 12 sectors with 120 levels. Every week, a new challenge with an online leaderboard.</p>
-        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.voidcoilbarrage" target="_blank" rel="noopener"><img src="../img/badge-play-en.png" alt="Get it on Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="0oLgjBHC5zQ" data-title="WormBlaster"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Watch trailer</button></div>
-        <div class="chips"><span class="chip soon">Coming soon to iOS</span><a class="privacy" href="https://sites.google.com/view/voidcoil-barrage-privacidad" target="_blank" rel="noopener">Privacy</a></div>
-      </div>
-    </article>
     <article class="game" id="soccerclubheroes">
       <div class="media">
         <div class="banner"><img src="../img/banner-soccerclubheroes.webp" alt="Soccer Club Heroes" loading="lazy" width="1024" height="500"></div>
@@ -226,6 +225,22 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         <p class="desc">Build your club with its own crest, kit and stadium, and run every match live with your finger: passes, runs and tactics. Challenge the teams above you and beat the leader to move up a league on the spot.</p>
         <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.soccerclubheroes" target="_blank" rel="noopener"><img src="../img/badge-play-en.png" alt="Get it on Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="ZiIzdSAKV5o" data-title="Soccer Club Heroes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Watch trailer</button></div>
         <div class="chips"><span class="chip soon">Coming soon to iOS</span><a class="privacy" href="https://sites.google.com/view/lara-games-studio" target="_blank" rel="noopener">Privacy</a></div>
+      </div>
+    </article>
+    <article class="game" id="wormblaster">
+      <div class="media">
+        <div class="banner"><img src="../img/banner-wormblaster.webp" alt="WormBlaster" loading="lazy" width="1024" height="500"></div>
+        <div class="shots"><button type="button" data-shot="../img/shots/wormblaster-1.webp"><img src="../img/shots/wormblaster-1.webp" alt="Screenshot of WormBlaster 1" loading="lazy" width="320" height="180"></button><button type="button" data-shot="../img/shots/wormblaster-2.webp"><img src="../img/shots/wormblaster-2.webp" alt="Screenshot of WormBlaster 2" loading="lazy" width="320" height="180"></button><button type="button" data-shot="../img/shots/wormblaster-3.webp"><img src="../img/shots/wormblaster-3.webp" alt="Screenshot of WormBlaster 3" loading="lazy" width="320" height="180"></button></div>
+      </div>
+      <div class="info">
+        <div class="icon-row">
+          <img src="../img/wormblaster.webp" alt="" width="64" height="64" loading="lazy">
+          <div><h3>WormBlaster</h3><p class="tagline">Offline arcade space shooter</p></div>
+        </div>
+        <ul class="tags"><li>Shoot &#x27;em up</li><li>Arcade</li><li>Offline</li></ul>
+        <p class="desc">Blast giant space serpents and their bosses. Pick one of 14 ships, stack upgrades that last the whole run and clear 12 sectors with 120 levels. Every week, a new challenge with an online leaderboard.</p>
+        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.voidcoilbarrage" target="_blank" rel="noopener"><img src="../img/badge-play-en.png" alt="Get it on Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="0oLgjBHC5zQ" data-title="WormBlaster"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Watch trailer</button></div>
+        <div class="chips"><span class="chip soon">Coming soon to iOS</span><a class="privacy" href="https://sites.google.com/view/voidcoil-barrage-privacidad" target="_blank" rel="noopener">Privacy</a></div>
       </div>
     </article>
     <article class="game" id="noctidia">
@@ -335,8 +350,8 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         <img src="../img/logo-lgs-light.webp" alt="Lara Games Studio" width="40" height="40" loading="lazy">
         <p>Independent game studio.<br><a href="mailto:laragamesstudio@gmail.com">laragamesstudio@gmail.com</a></p>
       </div>
-      <div><h4>Games</h4><ul><li><a href="#wormblaster">WormBlaster</a></li><li><a href="#soccerclubheroes">Soccer Club Heroes</a></li><li><a href="#noctidia">Noctidia</a></li><li><a href="#grindwave">Grindwave</a></li><li><a href="#nico">Nico</a></li><li><a href="#slingwake">Slingwake</a></li></ul></div>
-      <div><h4>Privacy policies</h4><ul><li><a href="https://sites.google.com/view/voidcoil-barrage-privacidad" target="_blank" rel="noopener">WormBlaster</a></li><li><a href="https://sites.google.com/view/lara-games-studio" target="_blank" rel="noopener">Soccer Club Heroes</a></li><li><a href="https://sites.google.com/view/noctidia-privacidad" target="_blank" rel="noopener">Noctidia</a></li><li><a href="https://sites.google.com/view/grindwave-privacidad" target="_blank" rel="noopener">Grindwave</a></li><li><a href="https://sites.google.com/view/gemtrekkerprivacidad" target="_blank" rel="noopener">Nico</a></li><li><a href="https://sites.google.com/view/slingwake-privacidad" target="_blank" rel="noopener">Slingwake</a></li></ul></div>
+      <div><h4>Games</h4><ul><li><a href="#soccerclubheroes">Soccer Club Heroes</a></li><li><a href="#wormblaster">WormBlaster</a></li><li><a href="#noctidia">Noctidia</a></li><li><a href="#grindwave">Grindwave</a></li><li><a href="#nico">Nico</a></li><li><a href="#slingwake">Slingwake</a></li></ul></div>
+      <div><h4>Privacy policies</h4><ul><li><a href="https://sites.google.com/view/lara-games-studio" target="_blank" rel="noopener">Soccer Club Heroes</a></li><li><a href="https://sites.google.com/view/voidcoil-barrage-privacidad" target="_blank" rel="noopener">WormBlaster</a></li><li><a href="https://sites.google.com/view/noctidia-privacidad" target="_blank" rel="noopener">Noctidia</a></li><li><a href="https://sites.google.com/view/grindwave-privacidad" target="_blank" rel="noopener">Grindwave</a></li><li><a href="https://sites.google.com/view/gemtrekkerprivacidad" target="_blank" rel="noopener">Nico</a></li><li><a href="https://sites.google.com/view/slingwake-privacidad" target="_blank" rel="noopener">Slingwake</a></li></ul></div>
     </div>
     <div class="legal">© 2026 Lara Games Studio. All rights reserved. Google Play is a trademark of Google LLC.</div>
   </div>
@@ -345,6 +360,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
 <dialog id="shot" aria-label="Screenshot of"><div class="frame"><button class="x" type="button">Close</button><img alt=""></div></dialog>
 <dialog id="vid" aria-label="Watch trailer"><div class="frame"><button class="x" type="button">Close</button><div class="video"></div></div></dialog>
 <script>
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video').forEach(v => v.pause());
 const shot = document.getElementById('shot'), shotImg = shot.querySelector('img');
 document.querySelectorAll('[data-shot]').forEach(b => b.addEventListener('click', () => {
   shotImg.src = b.dataset.shot; shotImg.alt = b.querySelector('img').alt; shot.showModal(); }));
