@@ -168,6 +168,22 @@ dialog .video { aspect-ratio: 16/9; }
 dialog .video iframe { width: 100%; height: 100%; border: 0; border-radius: 14px; }
 dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,255,.12); color: #fff; border: 0; border-radius: 999px;
             padding: 8px 16px; font: inherit; font-weight: 800; cursor: pointer; }
+/* vertical full-screen reel (phones) */
+#reel { position: fixed; inset: 0; z-index: 50; background: #000; display: grid; place-items: center; }
+#reel[hidden] { display: none; }
+#reel video { width: 100%; height: 100%; max-width: calc(100dvh * 9 / 16); object-fit: contain; background: #000; }
+#reel .x { position: absolute; top: calc(env(safe-area-inset-top) + 12px); right: 12px; width: 44px; height: 44px; border-radius: 50%;
+           border: 0; background: rgba(0,0,0,.45); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; }
+#reel .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255,255,255,.25); }
+#reel .bar i { display: block; height: 100%; width: 0; background: #fff; }
+#reel .info { position: absolute; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom) + 18px); display: flex; align-items: center;
+              justify-content: space-between; gap: 12px; pointer-events: none; }
+#reel .name { font-weight: 900; font-size: 1.1rem; text-shadow: 0 2px 8px rgba(0,0,0,.8); }
+#reel .cta { pointer-events: auto; } #reel .cta img { height: 44px; width: auto; }
+#reel .snd { position: absolute; top: calc(env(safe-area-inset-top) + 14px); left: 12px; border: 0; border-radius: 999px; padding: 9px 14px;
+             background: rgba(0,0,0,.55); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+#reel.paused::after { content: ""; position: absolute; width: 76px; height: 76px; border-radius: 50%; pointer-events: none;
+  background: rgba(0,0,0,.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='white'/%3E%3C/svg%3E") center/40px no-repeat; }
 :focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 </style>
@@ -223,7 +239,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Fútbol</li><li>Mánager</li><li>Online</li></ul>
         <p class="desc">Crea tu club con su escudo, su camiseta y su estadio, y dirige los partidos en directo con el dedo: pases, desmarques y táctica. Reta a los equipos de arriba y, si ganas al primero, subes de liga al momento.</p>
-        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.soccerclubheroes" target="_blank" rel="noopener"><img src="img/badge-play-es.png" alt="Disponible en Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="ZiIzdSAKV5o" data-title="Soccer Club Heroes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.soccerclubheroes" target="_blank" rel="noopener"><img src="img/badge-play-es.png" alt="Disponible en Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="ZiIzdSAKV5o" data-reel="video/reel-soccerclubheroes.mp4" data-poster="video/reel-soccerclubheroes.webp" data-play="https://play.google.com/store/apps/details?id=com.laragamesstudio.soccerclubheroes" data-title="Soccer Club Heroes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/lara-games-studio" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -239,7 +255,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Naves</li><li>Arcade</li><li>Sin internet</li></ul>
         <p class="desc">Revienta serpientes espaciales gigantes y a sus jefes. Elige entre 14 naves, encadena mejoras que se suman hasta el final de la partida y supera 12 sectores con 120 niveles. Cada semana, un desafío nuevo con ranking online.</p>
-        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.voidcoilbarrage" target="_blank" rel="noopener"><img src="img/badge-play-es.png" alt="Disponible en Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="0oLgjBHC5zQ" data-title="WormBlaster"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.voidcoilbarrage" target="_blank" rel="noopener"><img src="img/badge-play-es.png" alt="Disponible en Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="0oLgjBHC5zQ" data-reel="video/reel-wormblaster.mp4" data-poster="video/reel-wormblaster.webp" data-play="https://play.google.com/store/apps/details?id=com.laragamesstudio.voidcoilbarrage" data-title="WormBlaster"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/voidcoil-barrage-privacidad" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -255,7 +271,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Cartas</li><li>Roguelike</li><li>Estrategia</li></ul>
         <p class="desc">Cada turno el cielo gira y tus cartas cambian de cara: de día atacan, de noche te protegen. 150 cartas, tres héroes —una osa, un zorro y una lechuza— y jefes que también cambian con el cielo.</p>
-        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.noctidia" target="_blank" rel="noopener"><img src="img/badge-play-es.png" alt="Disponible en Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="h4vXUp_TvHY" data-title="Noctidia"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><a class="badge" href="https://play.google.com/store/apps/details?id=com.laragamesstudio.noctidia" target="_blank" rel="noopener"><img src="img/badge-play-es.png" alt="Disponible en Google Play" width="182" height="54"></a><button type="button" class="btn ghost" data-yt="h4vXUp_TvHY" data-reel="video/reel-noctidia.mp4" data-poster="video/reel-noctidia.webp" data-play="https://play.google.com/store/apps/details?id=com.laragamesstudio.noctidia" data-title="Noctidia"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/noctidia-privacidad" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -278,7 +294,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Skate</li><li>Runner</li><li>Un dedo</li></ul>
         <p class="desc">Loopings, megarrampas, trucos y grinds en 7 mundos y 35 niveles. Encadena trucos, llena la barra y desata el modo Grindwave: puntos dobles y rompes todo lo que pilles. Y cuidado: si te caes dos veces seguidas, te pillan.</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="TQHsaMqyliM" data-title="Grindwave"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="TQHsaMqyliM" data-reel="video/reel-grindwave.mp4" data-poster="video/reel-grindwave.webp" data-play="" data-title="Grindwave"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/grindwave-privacidad" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -294,7 +310,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Plataformas</li><li>Aventura</li></ul>
         <p class="desc">Salta, explora y recupera las Gemas del Sol en 40 niveles. Escapa de estampidas, aludes y rocas gigantes, encuentra las 120 gemas escondidas y vence a un tigre que embiste con fuego y a un gorila que lanza rocas.</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="8T8EumbZVg4" data-title="Nico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="8T8EumbZVg4" data-reel="video/reel-nico.mp4" data-poster="video/reel-nico.webp" data-play="" data-title="Nico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/gemtrekkerprivacidad" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -326,7 +342,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Minijuegos</li><li>Arcade</li><li>Un dedo</li></ul>
         <p class="desc">Derriba marcianos, desenfunda en un duelo del Oeste o marca un penalti: cada minijuego dura 15 segundos como mucho y se entiende de un vistazo. Son 50, llegan al azar y cada vez más rápido, y con 4 vidas y Tac esperándote en la Ronda Jefe, ¿cuántos aguantas?</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="sUqRIacWt0k" data-title="Arcade 15"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="sUqRIacWt0k" data-reel="video/reel-arcade15.mp4" data-poster="video/reel-arcade15.webp" data-play="" data-title="Arcade 15"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/arcade15-privacidad" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -342,7 +358,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Tráfico</li><li>Casual</li><li>Desafío diario</li></ul>
         <p class="desc">Toca los semáforos y que no se atasque la ciudad. 6 mapas y 60 niveles de día y de noche con ambulancias, peatones, tormentas y caravanas de boda, más el modo infinito y un desafío diario con el mismo tráfico para todos y ranking online.</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="xSngo87HlhU" data-title="Crazy Traffic Simulator"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="xSngo87HlhU" data-reel="video/reel-crazytraffic.mp4" data-poster="video/reel-crazytraffic.webp" data-play="" data-title="Crazy Traffic Simulator"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/crazytrafficsim-privacidad" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -358,7 +374,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Arcade</li><li>Retro</li><li>Cooperativo</li></ul>
         <p class="desc">Pasea por el salón, toca una máquina y la pantalla te absorbe: INSERT COIN. 8 máquinas con 100 niveles cada una —laberintos, rompebloques, naves, pinball, coches de ranura y más—, el modo Último Crédito con ranking online y cooperativo con un amigo.</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="INDf2aBsJnQ" data-title="Last Credit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="INDf2aBsJnQ" data-reel="video/reel-lastcredit.mp4" data-poster="video/reel-lastcredit.webp" data-play="" data-title="Last Credit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span></div>
       </div>
     </article>
@@ -374,7 +390,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Estrategia</li><li>Defensa</li><li>Medieval</li></ul>
         <p class="desc">Eres el rey: cabalga, dispara flechas, recoge el oro y levanta cuarteles, torres y murallas para frenar a goblins, orcos y trolls. 25 niveles en 5 regiones, de día, de noche o bajo la nieve, cinco héroes con su montura y La Horda: 1.200 enemigos subiendo a por tu fortaleza.</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="1ELJZl1hwjo" data-title="Palisade King"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="1ELJZl1hwjo" data-reel="video/reel-palisadeking.mp4" data-poster="video/reel-palisadeking.webp" data-play="" data-title="Palisade King"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/palisadekingprivacidad" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -390,7 +406,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>RPG</li><li>Héroes</li><li>PvP</li></ul>
         <p class="desc">Colecciona 20 héroes y guíalos mundo tras mundo hacia la corona: toca en el momento justo para lograr golpes PERFECTOS y vence al jefe de cada mundo. Defiende tu castillo oleada a oleada y asalta los de otros jugadores en noches de tormenta.</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="e7SOeRQRSE0" data-title="Road to the Crown"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="e7SOeRQRSE0" data-reel="video/reel-roadtothecrown.mp4" data-poster="video/reel-roadtothecrown.webp" data-play="" data-title="Road to the Crown"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span><a class="privacy" href="https://sites.google.com/view/roadtothecrown-privacidad/inicio" target="_blank" rel="noopener">Privacidad</a></div>
       </div>
     </article>
@@ -406,7 +422,7 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
         </div>
         <ul class="tags"><li>Minigolf</li><li>Multijugador</li><li>Casual</li></ul>
         <p class="desc">Minigolf en islas de juguete flotantes: molinillos, barcos pirata, templos, toboganes de hielo, volcanes y ciudades de neón. Arrastra, suelta y a por el hoyo en uno: tú solo, de 2 a 4 amigos en el mismo móvil o en duelos online en directo.</p>
-        <div class="btns"><button type="button" class="btn ghost" data-yt="EIOJHUu-Z38" data-title="Tee Hop"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
+        <div class="btns"><button type="button" class="btn ghost" data-yt="EIOJHUu-Z38" data-reel="video/reel-teehop.mp4" data-poster="video/reel-teehop.webp" data-play="" data-title="Tee Hop"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Ver tráiler</button></div>
         <div class="chips"><span class="chip soon">Pronto en Google Play</span><span class="chip soon">Pronto en iOS</span></div>
       </div>
     </article>
@@ -454,6 +470,13 @@ dialog .x { position: absolute; top: -46px; right: 0; background: rgba(255,255,2
 </footer>
 
 <dialog id="shot" aria-label="Captura de"><div class="frame"><button class="x" type="button">Cerrar</button><img alt=""></div></dialog>
+<div id="reel" hidden role="dialog" aria-modal="true" aria-label="Ver tráiler">
+  <video playsinline loop preload="none"></video>
+  <div class="bar"><i></i></div>
+  <button class="x" type="button" aria-label="Cerrar">×</button>
+  <button class="snd" type="button" hidden>🔊 Activar sonido</button>
+  <div class="info"><span class="name"></span><a class="cta" hidden target="_blank" rel="noopener"><img src="img/badge-play-es.png" alt="Disponible en Google Play"></a></div>
+</div>
 <dialog id="vid" aria-label="Ver tráiler"><div class="frame"><button class="x" type="button">Cerrar</button><div class="video"></div></div></dialog>
 <script>
 if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video').forEach(v => v.pause());
@@ -461,7 +484,29 @@ const shot = document.getElementById('shot'), shotImg = shot.querySelector('img'
 document.querySelectorAll('[data-shot]').forEach(b => b.addEventListener('click', () => {
   shotImg.src = b.dataset.shot; shotImg.alt = b.querySelector('img').alt; shot.showModal(); }));
 const vid = document.getElementById('vid'), box = vid.querySelector('.video');
+const reel = document.getElementById('reel'), rv = reel.querySelector('video'), bar = reel.querySelector('.bar i');
+const phone = () => matchMedia('(max-width: 820px), (pointer: coarse)').matches;
+function openReel(b) {
+  reel.querySelector('.name').textContent = b.dataset.title;
+  const cta = reel.querySelector('.cta'); cta.hidden = !b.dataset.play; if (b.dataset.play) cta.href = b.dataset.play;
+  rv.poster = b.dataset.poster; rv.src = b.dataset.reel; rv.muted = false;
+  reel.hidden = false; document.body.style.overflow = 'hidden'; history.pushState({reel: 1}, '');
+  rv.play().catch(() => { rv.muted = true; rv.play(); reel.querySelector('.snd').hidden = false; });
+}
+function closeReel(fromHistory) {
+  if (reel.hidden) return;
+  rv.pause(); rv.removeAttribute('src'); rv.load(); reel.hidden = true; document.body.style.overflow = '';
+  reel.querySelector('.snd').hidden = true; if (!fromHistory) history.back();
+}
+reel.querySelector('.x').addEventListener('click', () => closeReel(false));
+addEventListener('popstate', () => closeReel(true));
+addEventListener('keydown', ev => { if (ev.key === 'Escape') closeReel(false); });
+rv.addEventListener('click', () => { if (rv.muted) { rv.muted = false; reel.querySelector('.snd').hidden = true; return; } rv.paused ? rv.play() : rv.pause(); });
+rv.addEventListener('play', () => reel.classList.remove('paused')); rv.addEventListener('pause', () => reel.classList.add('paused'));
+rv.addEventListener('timeupdate', () => { bar.style.width = (rv.duration ? 100 * rv.currentTime / rv.duration : 0) + '%'; });
+reel.querySelector('.snd').addEventListener('click', () => { rv.muted = false; reel.querySelector('.snd').hidden = true; });
 document.querySelectorAll('[data-yt]').forEach(b => b.addEventListener('click', () => {
+  if (b.dataset.reel && (phone() || !b.dataset.yt)) return openReel(b);
   box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0" title="' + b.dataset.title +
     '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>'; vid.showModal(); }));
 vid.addEventListener('close', () => { box.innerHTML = ''; });
